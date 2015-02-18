@@ -6,7 +6,7 @@ import java.awt.image.BufferStrategy;
 import lRsim15.tilegame.display.Display;
 import lRsim15.tilegame.gfx.Assets;
 import lRsim15.tilegame.input.KeyManager;
-import lRsim15.tilegame.map.TileMap;
+import lRsim15.tilegame.map.TileMap_BK;
 import lRsim15.tilegame.states.GameState;
 import lRsim15.tilegame.states.MenuState;
 import lRsim15.tilegame.states.SettingsState;
@@ -15,7 +15,7 @@ import lRsim15.tilegame.states.State;
 public class Game implements Runnable {
 
 	private Display display;
-	public static final int WIDTH = 496, HEIGHT = 384, SCALE = 3;
+	public static final int WIDTH = 384, HEIGHT = 384, SCALE = 1;
 	public int width, height;
 	public String title;
 	
@@ -34,14 +34,16 @@ public class Game implements Runnable {
 //	private TileMap tileMap;
 	
 	public Game(String title, int width, int height){
-		this.width = width;
-		this.height = height;
+		this.width = WIDTH;
+		this.height = HEIGHT;
 		this.title = title;
+		System.out.println("Width: "+WIDTH+" Height: "+HEIGHT);
 		keyManager = new KeyManager();
 	}
 	
 	private void init(){
-		display = new Display(title, width, height);
+		display = new Display(title, width, height, SCALE);
+		System.out.println("Width*: "+width+" Height*: "+height);
 		display.getFrame().addKeyListener(keyManager);
 		Assets.init();
 		

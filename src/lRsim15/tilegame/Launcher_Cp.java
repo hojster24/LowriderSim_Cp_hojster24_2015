@@ -7,5 +7,4 @@ public class Launcher_Cp {
 		Game game = new Game("Tile Game!", 640, 384);
 		game.start();
 	}
-	
 }
