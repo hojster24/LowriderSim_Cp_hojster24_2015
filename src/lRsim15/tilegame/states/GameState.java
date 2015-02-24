@@ -8,22 +8,32 @@ import lRsim15.tilegame.map.TileMap;
 
 public class GameState extends State {
 	
-	private Player player;
+	private Player emmet;
 	private TileMap tileMap;
+	private String mapName="res/brentwood.txt";
 	
 	public GameState(Game game){
 		super(game);
-		tileMap = new TileMap("res/map.txt", 32);
-		player = new Player(game,100,100);
+		tileMap = new TileMap(mapName, 32);
+		emmet = new Player(game,100,100);
+	}
+	
+	public TileMap getMap()
+	{
+		return tileMap;
 	}
 	
 	public void tick() {
-//		tileMap.tick();
-		player.tick();
+		emmet.tick();
+		System.out.print("X: "+emmet.getX()+" Y: "+ emmet.getY());
+		System.out.println(" ID: "+tileMap.tileID(emmet.getX(),emmet.getY()));
+	}
+	public void setMap(String s){
+		this.mapName = s;
 	}
 	
 	public void render(Graphics g) {
 		tileMap.render(g);
-		player.render(g);
+		emmet.render(g);
 	}
 }

@@ -1,12 +1,16 @@
 package lRsim15.tilegame;
-
+/*
+ This is the development build of my game
+ by: Henry Jones 2015
+ Please do not edit this code
+ */
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 
 import lRsim15.tilegame.display.Display;
 import lRsim15.tilegame.gfx.Assets;
 import lRsim15.tilegame.input.KeyManager;
-import lRsim15.tilegame.map.TileMap_BK;
+import lRsim15.tilegame.map.TileMap;
 import lRsim15.tilegame.states.GameState;
 import lRsim15.tilegame.states.MenuState;
 import lRsim15.tilegame.states.SettingsState;
@@ -31,7 +35,11 @@ public class Game implements Runnable {
 	private State settingsState;
 	
 	private KeyManager keyManager;
-//	private TileMap tileMap;
+
+	public TileMap getMap()
+	{
+		return ((GameState)gameState).getMap();
+	}
 	
 	public Game(String title, int width, int height){
 		this.width = WIDTH;
